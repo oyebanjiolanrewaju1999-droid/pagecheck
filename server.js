@@ -287,10 +287,10 @@ async function audit(rawUrl) {
   const seo = [
     item('Page title', p.title.length >= 10 && p.title.length <= 60 ? 'pass' : p.title ? 'warn' : 'fail',
       p.title ? `"${p.title}" (${p.title.length} characters).` : 'No title tag found.',
-      'Write a 10â€“60 character title that says what the page offers.', 3),
+      'Write a 10–60 character title that says what the page offers.', 3),
     item('Meta description', p.description.length >= 50 && p.description.length <= 160 ? 'pass' : p.description ? 'warn' : 'fail',
       p.description ? `${p.description.length} characters.` : 'No meta description found.',
-      'Write a 50â€“160 character description; it is the text under the link in search results.', 3),
+      'Write a 50–160 character description; it is the text under the link in search results.', 3),
     item('One main heading', p.h1.length === 1 ? 'pass' : p.h1.length === 0 ? 'fail' : 'warn',
       p.h1.length ? `${p.h1.length} H1 heading${p.h1.length === 1 ? '' : 's'} found.` : 'No H1 heading found.',
       'Use exactly one H1 that states the main promise of the page.', 2),
