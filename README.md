@@ -25,14 +25,12 @@ English, French, Spanish and Hindi. The selector auto-detects the browser
 language, remembers the choice, and keeps it in shareable URLs (`?lang=es`).
 
 - Interface text is hand-written per language in `public/i18n.js`.
-- Report text (labels, details, fixes) is machine-translated on the server with a
-  cache, so repeat checks are fast. Group names use the hand-written ones.
-- If the translator is unavailable, report text falls back to English.
-
-The translator uses Google's public `clients5` endpoint. It is free and works
-well at low volume, but it is not a contracted API — for production scale,
-replace `translateChunk()` with DeepL/Google Cloud Translate or move the strings
-into the locale file.
+- Report labels and fixes are hand-written in `public/report-i18n.js`, keyed by
+  the English strings the server returns.
+- Detailed measurements (character counts, header values) are omitted in
+  non-English views for now — the label and the fix carry the action.
+- No translation service is called at runtime. Everything is local and cached
+  with the page.
 
 ## Share image
 

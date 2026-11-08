@@ -268,126 +268,6 @@ function grade(score) {
   return 'F';
 }
 
-/* ---------- translation (cached) ---------- */
-
-const translationCache = new Map();
-const TRANSLATE_LANGS = new Set(['fr', 'es', 'hi']);
-
-async function viaClients5(texts, lang) {
-  const base = 'https://clients5.google.com/translate_a/t?client=dict-chrome-ex&sl=en&tl=' + encodeURIComponent(lang);
-  const url = base + texts.map((text) => '&q=' + encodeURIComponent(text)).join('');
-  const response = await fetch(url, {
-    signal: AbortSignal.timeout(8000),
-    headers: { 'user-agent': 'Mozilla/5.0 (compatible; PageCheck/1.0)' },
-  });
-  if (!response.ok) throw new Error('clients5 ' + response.status);
-  const data = await response.json();
-  if (!Array.isArray(data) || data.length !== texts.length) throw new Error('clients5 shape');
-  return data.map((part) => String(part).trim());
-}
-
-async function viaGtx(texts, lang) {
-  const separator = '\n<<<>>>\n';
-  const url = 'https://translate.googleapis.com/translate_a/single?client=gtx&sl=en&tl=' +
-    encodeURIComponent(lang) + '&dt=t&q=' + encodeURIComponent(texts.join(separator));
-  const response = await fetch(url, {
-    signal: AbortSignal.timeout(8000),
-    headers: { 'user-agent': 'Mozilla/5.0' },
-  });
-  if (!response.ok) throw new Error('gtx ' + response.status);
-  const data = await response.json();
-  const joined = (data[0] || []).map((part) => part[0] || '').join('');
-  const parts = joined.split('<<<>>>').map((part) => part.trim());
-  if (parts.length !== texts.length) throw new Error('gtx split');
-  return parts;
-}
-
-async function viaMyMemory(texts, lang) {
-  const separator = '\n<<<>>>\n';
-  const url = 'https://api.mymemory.translated.net/get?q=' + encodeURIComponent(texts.join(separator)) +
-    '&langpair=' + encodeURIComponent('en|' + lang);
-  const response = await fetch(url, {
-    signal: AbortSignal.timeout(8000),
-    headers: { 'user-agent': 'Mozilla/5.0' },
-  });
-  if (!response.ok) throw new Error('mymemory ' + response.status);
-  const data = await response.json();
-  const translated = data && data.responseData && data.responseData.translatedText;
-  if (!translated) throw new Error('mymemory shape');
-  const parts = String(translated).split('<<<>>>').map((part) => part.trim());
-  if (parts.length !== texts.length) throw new Error('mymemory split');
-  return parts;
-}
-
-async function translateChunk(texts, lang) {
-  for (const provider of [viaClients5, viaGtx, viaMyMemory]) {
-    try {
-      const result = await provider(texts, lang);
-      if (result && result.length === texts.length) return result;
-    } catch { /* try the next provider */ }
-  }
-  throw new Error('translation unavailable');
-}
-
-async function translateTexts(texts, lang) {
-  const unique = [...new Set(texts.filter(Boolean))];
-  const missing = unique.filter((text) => !translationCache.has(lang + '|' + text));
-
-  const chunks = [];
-  let chunk = [];
-  let size = 0;
-  for (const text of missing) {
-    if (chunk.length && (chunk.length >= 25 || size + text.length > 2200)) {
-      chunks.push(chunk);
-      chunk = [];
-      size = 0;
-    }
-    chunk.push(text);
-    size += text.length + 8;
-  }
-  if (chunk.length) chunks.push(chunk);
-
-  const results = await Promise.all(chunks.map(async (batch) => {
-    try {
-      return await translateChunk(batch, lang);
-    } catch {
-      return batch;
-    }
-  }));
-  results.forEach((translated, index) => {
-    chunks[index].forEach((text, offset) => translationCache.set(lang + '|' + text, translated[offset] || text));
-  });
-
-  if (translationCache.size > 5000) {
-    const keys = [...translationCache.keys()].slice(0, 2000);
-    for (const key of keys) translationCache.delete(key);
-  }
-  return texts.map((text) => translationCache.get(lang + '|' + text) || text);
-}
-
-async function localise(result, lang) {
-  const texts = [];
-  for (const group of result.groups) {
-    texts.push(group.name);
-    for (const entry of group.items) {
-      texts.push(entry.label);
-      if (entry.detail) texts.push(entry.detail);
-      if (entry.fix) texts.push(entry.fix);
-    }
-  }
-  const translated = await translateTexts(texts, lang);
-  let cursor = 0;
-  for (const group of result.groups) {
-    group.name = translated[cursor++];
-    for (const entry of group.items) {
-      entry.label = translated[cursor++];
-      if (entry.detail) entry.detail = translated[cursor++];
-      if (entry.fix) entry.fix = translated[cursor++];
-    }
-  }
-  return result;
-}
-
 /* ---------- audit ---------- */
 
 async function audit(rawUrl) {
@@ -407,10 +287,10 @@ async function audit(rawUrl) {
   const seo = [
     item('Page title', p.title.length >= 10 && p.title.length <= 60 ? 'pass' : p.title ? 'warn' : 'fail',
       p.title ? `"${p.title}" (${p.title.length} characters).` : 'No title tag found.',
-      'Write a 10–60 character title that says what the page offers.', 3),
+      'Write a 10â€“60 character title that says what the page offers.', 3),
     item('Meta description', p.description.length >= 50 && p.description.length <= 160 ? 'pass' : p.description ? 'warn' : 'fail',
       p.description ? `${p.description.length} characters.` : 'No meta description found.',
-      'Write a 50–160 character description; it is the text under the link in search results.', 3),
+      'Write a 50â€“160 character description; it is the text under the link in search results.', 3),
     item('One main heading', p.h1.length === 1 ? 'pass' : p.h1.length === 0 ? 'fail' : 'warn',
       p.h1.length ? `${p.h1.length} H1 heading${p.h1.length === 1 ? '' : 's'} found.` : 'No H1 heading found.',
       'Use exactly one H1 that states the main promise of the page.', 2),
@@ -538,8 +418,6 @@ const server = http.createServer(async (req, res) => {
     }
     try {
       const result = await audit(target);
-      const lang = String(url.searchParams.get('lang') || 'en').toLowerCase().slice(0, 2);
-      if (TRANSLATE_LANGS.has(lang)) await localise(result, lang);
       json(res, 200, result);
     } catch (error) {
       json(res, 400, { ok: false, error: error.message || 'The page could not be checked.' });
@@ -548,20 +426,6 @@ const server = http.createServer(async (req, res) => {
   }
   if (url.pathname === '/health') {
     json(res, 200, { ok: true, name: 'pagecheck' });
-    return;
-  }
-  if (url.pathname === '/api/translate-check') {
-    const lang = String(url.searchParams.get('lang') || 'fr').slice(0, 2);
-    const sample = ['Hello world', 'Page title'];
-    const results = {};
-    for (const [name, provider] of [['clients5', viaClients5], ['gtx', viaGtx], ['mymemory', viaMyMemory]]) {
-      try {
-        results[name] = { ok: true, value: await provider(sample, lang) };
-      } catch (error) {
-        results[name] = { ok: false, error: error.message };
-      }
-    }
-    json(res, 200, { lang, results });
     return;
   }
   await serveStatic(req, res, url.pathname);

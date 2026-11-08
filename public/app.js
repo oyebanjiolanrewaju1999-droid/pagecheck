@@ -30,6 +30,10 @@ function dict() {
   return (window.I18N && window.I18N[LANG]) || window.I18N.en;
 }
 
+function reportDict() {
+  return (window.REPORT_I18N && window.REPORT_I18N[LANG]) || null;
+}
+
 function t(key, params) {
   let text = dict()[key] || window.I18N.en[key] || key;
   if (params) {
@@ -135,6 +139,11 @@ function renderSummary(data) {
   );
   info.append(chips);
 
+  if (LANG !== 'en') {
+    const rd = reportDict();
+    if (rd && rd.note) info.append(el('p', 'translated-note', rd.note));
+  }
+
   const actions = el('div', 'actions');
   const copy = el('button', null, t('copy'));
   copy.type = 'button';
@@ -188,14 +197,17 @@ function renderGroup(group) {
   summary.append(top, bar, note);
 
   const body = el('div', 'group-items');
+  const rd = reportDict();
   for (const entry of group.items) {
     const row = el('div', 'item ' + entry.status);
     row.append(icon(STATUS_ICON[entry.status] || 'alert', 'status-icon'));
     const text = el('div');
-    text.append(el('b', null, entry.label));
-    if (entry.detail) text.append(el('p', 'detail', entry.detail));
+    const label = (rd && rd.labels[entry.label]) || entry.label;
+    text.append(el('b', null, label));
+    if (entry.detail && LANG === 'en') text.append(el('p', 'detail', entry.detail));
     if (entry.status !== 'pass' && entry.fix) {
-      const fix = el('p', 'fix', entry.fix);
+      const fixText = (rd && rd.fixes[entry.fix]) || entry.fix;
+      const fix = el('p', 'fix', fixText);
       fix.dataset.label = t('doThis');
       text.append(fix);
     }
