@@ -1,0 +1,13 @@
+{
+  "name": "pagecheck",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Paste a landing page, get a plain-English audit.",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}
