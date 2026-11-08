@@ -273,17 +273,60 @@ function grade(score) {
 const translationCache = new Map();
 const TRANSLATE_LANGS = new Set(['fr', 'es', 'hi']);
 
-async function translateChunk(texts, lang) {
+async function viaClients5(texts, lang) {
   const base = 'https://clients5.google.com/translate_a/t?client=dict-chrome-ex&sl=en&tl=' + encodeURIComponent(lang);
   const url = base + texts.map((text) => '&q=' + encodeURIComponent(text)).join('');
   const response = await fetch(url, {
     signal: AbortSignal.timeout(8000),
     headers: { 'user-agent': 'Mozilla/5.0 (compatible; PageCheck/1.0)' },
   });
-  if (!response.ok) throw new Error('translation failed');
+  if (!response.ok) throw new Error('clients5 ' + response.status);
   const data = await response.json();
-  if (!Array.isArray(data) || data.length !== texts.length) throw new Error('translation shape mismatch');
+  if (!Array.isArray(data) || data.length !== texts.length) throw new Error('clients5 shape');
   return data.map((part) => String(part).trim());
+}
+
+async function viaGtx(texts, lang) {
+  const separator = '\n<<<>>>\n';
+  const url = 'https://translate.googleapis.com/translate_a/single?client=gtx&sl=en&tl=' +
+    encodeURIComponent(lang) + '&dt=t&q=' + encodeURIComponent(texts.join(separator));
+  const response = await fetch(url, {
+    signal: AbortSignal.timeout(8000),
+    headers: { 'user-agent': 'Mozilla/5.0' },
+  });
+  if (!response.ok) throw new Error('gtx ' + response.status);
+  const data = await response.json();
+  const joined = (data[0] || []).map((part) => part[0] || '').join('');
+  const parts = joined.split('<<<>>>').map((part) => part.trim());
+  if (parts.length !== texts.length) throw new Error('gtx split');
+  return parts;
+}
+
+async function viaMyMemory(texts, lang) {
+  const separator = '\n<<<>>>\n';
+  const url = 'https://api.mymemory.translated.net/get?q=' + encodeURIComponent(texts.join(separator)) +
+    '&langpair=' + encodeURIComponent('en|' + lang);
+  const response = await fetch(url, {
+    signal: AbortSignal.timeout(8000),
+    headers: { 'user-agent': 'Mozilla/5.0' },
+  });
+  if (!response.ok) throw new Error('mymemory ' + response.status);
+  const data = await response.json();
+  const translated = data && data.responseData && data.responseData.translatedText;
+  if (!translated) throw new Error('mymemory shape');
+  const parts = String(translated).split('<<<>>>').map((part) => part.trim());
+  if (parts.length !== texts.length) throw new Error('mymemory split');
+  return parts;
+}
+
+async function translateChunk(texts, lang) {
+  for (const provider of [viaClients5, viaGtx, viaMyMemory]) {
+    try {
+      const result = await provider(texts, lang);
+      if (result && result.length === texts.length) return result;
+    } catch { /* try the next provider */ }
+  }
+  throw new Error('translation unavailable');
 }
 
 async function translateTexts(texts, lang) {
@@ -505,6 +548,20 @@ const server = http.createServer(async (req, res) => {
   }
   if (url.pathname === '/health') {
     json(res, 200, { ok: true, name: 'pagecheck' });
+    return;
+  }
+  if (url.pathname === '/api/translate-check') {
+    const lang = String(url.searchParams.get('lang') || 'fr').slice(0, 2);
+    const sample = ['Hello world', 'Page title'];
+    const results = {};
+    for (const [name, provider] of [['clients5', viaClients5], ['gtx', viaGtx], ['mymemory', viaMyMemory]]) {
+      try {
+        results[name] = { ok: true, value: await provider(sample, lang) };
+      } catch (error) {
+        results[name] = { ok: false, error: error.message };
+      }
+    }
+    json(res, 200, { lang, results });
     return;
   }
   await serveStatic(req, res, url.pathname);
