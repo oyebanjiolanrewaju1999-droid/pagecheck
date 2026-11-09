@@ -11,6 +11,6 @@ Date,Business,Category,Website,Contact Name,Email or Form,Score,Top Issue,Sent,F
 2026-11-09,Kesar Sweets & Restaurant,Restaurant,https://www.kesars.ca,Team,info@kesars.ca,91,Title 62 chars and 2/29 images missing alt,Yes,2026-11-17,No,Awaiting,,
 2026-11-09,Tadka King,Restaurant,https://tadkaking.ca,Team,info@tadkaking.ca,91,Description 188 chars and 2 H1 headings,Yes,2026-11-17,No,Awaiting,,
 2026-11-09,Bucatini,Restaurant,https://bucatinirestaurant.com,Team,vincebucatini@gmail.com,79,Title 70 chars and 6/19 images missing alt,Yes,,No,Bounced,Address not found - do not retry; use their contact form
-2026-11-09,Paramount Fine Foods,Restaurant,https://www.paramountfinefoods.com,Team,contactus@paramountfinefoods.com,76,Page title 722 chars and description 785,Pending,2026-11-17,No,Awaiting,Batch 2 replacement - link verified
-2026-11-09,Hakka House Brampton,Restaurant,https://www.hakkahousebrampton.ca,Team,bramptonhakkahouse@gmail.com,75,No meta description and no og:image,Pending,2026-11-17,No,Awaiting,Batch 2 replacement - link verified
-2026-11-09,CoCo Fresh Tea & Juice,Cafe,https://cocofreshtea.ca,Team,cocoteatoronto@gmail.com,58,No description / no H1 / no og:image,Pending,2026-11-17,No,Awaiting,Batch 2 replacement - link verified
+2026-11-09,Paramount Fine Foods,Restaurant,https://www.paramountfinefoods.com,Team,contactus@paramountfinefoods.com,76,No og:image / alt text / mixed content,Yes,2026-11-17,No,Awaiting,Batch 2 replacement - link verified
+2026-11-09,Hakka House Brampton,Restaurant,https://www.hakkahousebrampton.ca,Team,bramptonhakkahouse@gmail.com,75,No meta description and no og:image,Yes,2026-11-17,No,Awaiting,Batch 2 replacement - link verified
+2026-11-09,CoCo Fresh Tea & Juice,Cafe,https://cocofreshtea.ca,Team,cocoteatoronto@gmail.com,58,No description / no H1 / no og:image,Yes,2026-11-17,No,Awaiting,Batch 2 replacement - link verified

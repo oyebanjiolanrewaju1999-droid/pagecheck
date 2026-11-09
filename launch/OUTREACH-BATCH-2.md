@@ -13,17 +13,21 @@ Follow-up date: **2026-11-17**. Stop if asked.
 
 ## 1. Paramount Fine Foods — contactus@paramountfinefoods.com
 
-**Subject:** Your Google title is 722 characters long
+**Subject:** Two insecure resources on your checkout page
 
 > Hi Paramount team,
 >
-> I ran your Brampton site through a free audit tool I built. Score: 76/100 — but one finding is hard to ignore: your page title is 722 characters. Google only shows about 60 of them, so everything after the first few words never appears in search results.
+> I ran your Brampton site through a free audit tool I built. Score: 76/100. Three things are failing:
 >
-> Your meta description is 785 characters for the same reason (about 160 shows), and the page has two H1 headings.
+> - No social preview image, so your links look blank when shared
+> - 4 of 7 images have no alt text, which costs you Google and screen readers
+> - 2 resources load over plain HTTP on an HTTPS page, so browsers warn about mixed content
+>
+> One more, easy to miss: your page title is 722 characters. Google shows about 60, so everything after the first few words never appears in search.
 >
 > Full report, no sign-up: https://pagecheck-946f.onrender.com/?url=https%3A%2F%2Fwww.paramountfinefoods.com%2F&utm_source=outreach&utm_medium=email&utm_campaign=batch2&utm_content=paramount
 >
-> I'm a developer in Brampton, not selling anything — I built the tool and I'm testing it on local businesses. Trimming those two fields is usually a ten-minute fix on your CMS.
+> I'm a developer in Brampton, not selling anything — I built the tool and I'm testing it on local businesses. All four are usually quick fixes on your CMS.
 >
 > Philip Oyebanji
 > Brampton, ON · oyebanjiolanrewaju1999@gmail.com
