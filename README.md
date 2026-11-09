@@ -102,6 +102,12 @@ Any Node host works. On Render: Web Service → Runtime Node → Build
 4. Compare two URLs — before and after an edit.
 5. Shareable score card image.
 
+## Licence
+
+MIT — see [LICENSE](LICENSE). You can use, modify and self-host it; keep the
+copyright notice. The hosted instance at pagecheck-946f.onrender.com is provided
+as-is, with no warranty and no guarantee of uptime.
+
 ## Project structure
 
 ```
