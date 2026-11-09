@@ -1,94 +1,115 @@
 # PageCheck
 
-Paste a landing page URL, get a plain-English audit of the things that quietly
-cost sign-ups. Built with Node.js and vanilla JavaScript — no runtime dependencies.
+**A free 30-point audit for landing pages — no sign-up, no tracking, no dependencies.**
 
-## What it checks (30 items, 8 groups)
+[**Try it → pagecheck-946f.onrender.com**](https://pagecheck-946f.onrender.com)
+
+![PageCheck home page](docs/home.png)
+
+Paste a URL. Get a score out of 100, the three fixes that matter most, and a
+plain-English explanation of each. Thirty checks across reachability, search,
+link previews, mobile, content, speed, security and conversion — the same things
+an agency looks at before spending money on ads.
+
+![Audit report](docs/report.png)
+
+## Why it exists
+
+Small businesses get told their site is "bad for SEO" with no explanation. Most
+audit tools are aimed at developers and drown people in jargon. PageCheck gives
+one number, a grade, and a prioritised list of fixes written for the person who
+owns the site — not the person who built it.
+
+## What it checks
 
 | Group | Examples |
 |---|---|
 | Reachability | HTTPS, HTTP status, redirects, response time |
-| Search basics | title length, meta description, single H1, canonical, lang, noindex |
-| Link previews | og:title, og:description, og:image, twitter:card |
+| Search basics | title length, meta description, single H1, canonical, lang, `noindex` |
+| Link previews | `og:title`, `og:description`, `og:image`, `twitter:card` |
 | Mobile | viewport meta |
 | Content | word count, image alt coverage, structured data |
-| Speed | HTML size, compression, external scripts, blocking scripts |
-| Security | HSTS, CSP, nosniff, referrer policy, frame protection, mixed content |
-| Conversion | contact route (form/tel/mailto), visible buttons |
+| Speed | HTML size, compression, external and blocking scripts |
+| Security | HSTS, CSP, `nosniff`, referrer policy, frame protection, mixed content |
+| Conversion | contact route (form / tel / mailto), visible buttons |
 
-Each item returns pass / warn / fail, a plain detail line, and a fix. Scores are
-weighted within each group; the overall score is the mean of the eight groups.
+Each check returns **pass / warn / fail**, a detail line, and a fix. Checks are
+weighted inside their group; the overall score is the mean of the eight groups.
+The report shows the top three failing checks first, with the full thirty behind
+a toggle.
 
-## Languages
+## Built with zero runtime dependencies
 
-English, French, Spanish and Hindi. The selector auto-detects the browser
-language, remembers the choice, and keeps it in shareable URLs (`?lang=es`).
+`server.js` uses only Node's standard library; the front end is plain HTML, CSS
+and JavaScript. That means:
 
-- Interface text is hand-written per language in `public/i18n.js`.
-- Report labels and fixes are hand-written in `public/report-i18n.js`, keyed by
-  the English strings the server returns.
-- Detailed measurements (character counts, header values) are omitted in
-  non-English views for now — the label and the fix carry the action.
-- No translation service is called at runtime. Everything is local and cached
-  with the page.
+- no supply-chain surface and nothing to patch weekly
+- a cold start measured in milliseconds
+- the whole app fits in one small repo a reviewer can read in an afternoon
 
-## Share image
+## Safety, because it fetches arbitrary URLs
 
-`public/og.png` is a 1200×630 card used for link previews. Regenerate it from
-`og-card.html` (kept outside the repo) if the wording changes.
+Accepting a URL from a stranger and requesting it is a server-side request
+forgery problem if you get it wrong. PageCheck:
+
+- allows only `http` / `https` on ports 80 and 443
+- resolves DNS and **rejects private, loopback, link-local and cloud-metadata
+  addresses before every request, including each redirect hop**
+- caps redirects at 5, the request at 12 s, and the HTML at 2 MB
+- serves the page with security headers and a CORS policy that allows only its
+  own origin
+- rate-limits to 12 checks per IP per minute
+
+Nothing is stored: no accounts, no database, no record of which URLs were checked.
+
+## Four languages
+
+English, French, Spanish and Hindi. The picker follows the browser language,
+remembers the choice, and keeps it in shareable URLs (`?lang=es`). All copy is
+hand-written per language in `public/i18n.js` and `public/report-i18n.js` — no
+translation API is called at runtime.
+
+## Mobile
+
+![PageCheck on a phone](docs/mobile.png)
 
 ## Run locally
 
-```powershell
-cd pagecheck
-node server.js
+```bash
+node server.js          # http://localhost:4455
+PORT=4460 node server.js
 ```
 
-Open http://localhost:4455.
+## Deploy
 
-Or with a different port:
+Any Node host works. On Render: Web Service → Runtime Node → Build
+`npm install --omit=dev` → Start `node server.js` → health check `/health`.
+`render.yaml` is included for Blueprint deploys.
 
-```powershell
-$env:PORT = 4460; node server.js
-```
+## Limitations (v1)
 
-## Deploy on Render
-
-1. Create a GitHub repo and push this folder.
-2. Render → New → Web Service → connect the repo.
-3. Runtime: Node. Build: `npm install --omit=dev`. Start: `node server.js`.
-4. Health check path: `/health`.
-5. Free plan is enough — no disk, no database.
-
-`render.yaml` is included if you prefer a Blueprint.
-
-## Safety and privacy
-
-- Only `http` and `https` on ports 80/443.
-- DNS is resolved and **private, loopback, link-local and metadata addresses are
-  rejected** before any request, including on every redirect hop.
-- Maximum 5 redirects, 12-second timeout, 2 MB HTML cap.
-- Nothing is stored: no accounts, no database, no logs of checked URLs.
-- Rate limit: 12 checks per IP per minute.
-
-## Known limitations (v1)
-
-- Checks the HTML only — it does not execute JavaScript, so client-rendered
+- Reads the HTML only — it does not execute JavaScript, so client-rendered
   content is invisible to it.
-- No broken-link crawl (that needs a queue and many requests).
-- No screenshot or Core Web Vitals (those need a real browser).
-- English-language checks and copy.
+- No broken-link crawl, screenshot or Core Web Vitals (those need a browser and
+  a queue).
+- Checks are written for English-language pages.
 
 ## Roadmap
 
-1. **Email the full report** — turns it into a lead magnet for agency work.
-2. **Broken-link check** — crawl the first 50 links, report 404s.
-3. **Screenshot** — one image of the page in the report.
-4. **Compare two URLs** — before/after an edit.
-5. **Share cards** — generate an image with the score for social.
+1. Email the full report (turns it into a lead magnet for agencies).
+2. Crawl the first 50 links and report 404s.
+3. Browser screenshot in the report.
+4. Compare two URLs — before and after an edit.
+5. Shareable score card image.
 
-## Why this is a good portfolio piece
+## Project structure
 
-It is a real tool with a real user (agencies and store owners), and it
-demonstrates HTTP, HTML parsing, security headers, SSRF defence, scoring design
-and plain-English technical writing — all without a framework or dependencies.
+```
+server.js              audit engine, SSRF guards, static server, rate limit
+public/index.html      page shell
+public/app.js          rendering, i18n switching, report UI
+public/i18n.js         interface strings (EN/FR/ES/HI)
+public/report-i18n.js  report labels and fixes (EN/FR/ES/HI)
+public/style.css       single stylesheet, responsive at 720 px
+launch/                outreach, tracker, demo video, launch notes
+```

@@ -329,7 +329,8 @@ async function run(rawUrl) {
     if (!response.ok || !data.ok) throw new Error(data.error || 'The page could not be checked.');
     syncUrl(url);
     render(data);
-    setStatus(t('audited', { s: ((Date.now() - started) / 1000).toFixed(1) }));
+    const seconds = (Date.now() - started) / 1000;
+    setStatus(t('audited', { s: seconds < 0.05 ? '<0.1' : seconds.toFixed(1) }));
   } catch (error) {
     setStatus(error.message, true);
   } finally {
