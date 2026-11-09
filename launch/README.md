@@ -55,6 +55,7 @@ https://pagecheck-946f.onrender.com/?utm_source=reddit
 - `OUTREACH-BATCH-1.md` — six audited Brampton businesses with ready-to-send emails
 - `OUTREACH-BATCH-2.md` — three contact-form messages (no public email)
 - `OPTOUTS.md` — CASL opt-out record; log every "stop" here
+- `FIX-SERVICE.md` — what to do when a prospect replies: triage, prices, click paths
 - `SOCIAL-POSTS.md` — LinkedIn, X, Threads, Reddit, Indie Hackers
 - `PRODUCT-HUNT.md` — tagline, description, first comment
 - `VIDEO-SCRIPT.md` — 20-second screen recording
