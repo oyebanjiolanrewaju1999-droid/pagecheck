@@ -11,7 +11,7 @@ Tool: **https://pagecheck-946f.onrender.com**
 2. Run each site through PageCheck.
 3. Note the score and the single worst fix.
 4. Send the matching email from `OUTREACH-EMAILS.md`.
-5. Log it in `TRACKER.csv`.
+5. Log it in `OUTREACH-LOG.csv`.
 
 Stop at 10–15 per day. Personalized, not bulk.
 
@@ -64,4 +64,4 @@ https://pagecheck-946f.onrender.com/?utm_source=reddit
 - `PRODUCT-HUNT.md` — tagline, description, first comment
 - `VIDEO-SCRIPT.md` — 20-second screen recording
 - `TARGETS.md` — 30 search queries to build the list
-- `TRACKER.csv` — outreach log
+- `OUTREACH-LOG.csv` — outreach log (not named "tracker": Norton flags that filename)

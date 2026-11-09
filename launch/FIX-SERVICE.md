@@ -147,6 +147,6 @@ you show the next prospect.
 
 - One folder per client under `clients/<business>/`.
 - Keep the invoice, the before/after screenshots, and what you changed.
-- Log the reply in `TRACKER.csv` → `Replied = Yes`, `Outcome = Quoted / Fixed / Declined`.
+- Log the reply in `OUTREACH-LOG.csv` → `Replied = Yes`, `Outcome = Quoted / Fixed / Declined`.
 - Anyone who says "stop" goes in `OPTOUTS.md` and is never contacted again.
 - If you're receiving EI, self-employment income must be reported. Keep the invoices.

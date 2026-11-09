@@ -11,6 +11,6 @@ never contact that address or business again — including follow-ups.
 Rules:
 
 - Remove the row from any future batch list the same day.
-- Set `Outcome` to `Opted out` in `TRACKER.csv`; do not delete the row.
+- Set `Outcome` to `Opted out` in `OUTREACH-LOG.csv`; do not delete the row.
 - Keep this file for at least 3 years (CASL record-keeping).
 - A bounce is not an opt-out, but stop after **two** bounces to the same domain.
