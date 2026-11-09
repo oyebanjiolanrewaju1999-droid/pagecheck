@@ -29,6 +29,10 @@ Stop at 10–15 per day. Personalized, not bulk.
 
 ## Rules that keep you out of trouble
 
+- **Verify the link before you send it.** Open the exact audit URL and confirm it
+  returns a score. If it shows "empty page" or a blocked message, the site filters
+  datacenter traffic — do not send it. Some hosts (Cloudflare-style filters) reject
+  PageCheck's server IP.
 - **Canada's anti-spam law (CASL):** cold commercial email needs consent. The safest
   route is an address that is **conspicuously published** for the business role
   (e.g. `info@` or a contact page) and a message relevant to that role. Always
