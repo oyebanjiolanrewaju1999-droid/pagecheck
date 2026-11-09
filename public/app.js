@@ -138,6 +138,7 @@ function renderSummary(data) {
     el('span', 'chip', data.redirects === 0 ? t('noRedirects') : data.redirects === 1 ? t('redirectOne') : t('redirects', { n: data.redirects })),
   );
   info.append(chips);
+  info.append(el('p', 'score-legend', t('legend')));
 
   if (LANG !== 'en') {
     const rd = reportDict();
