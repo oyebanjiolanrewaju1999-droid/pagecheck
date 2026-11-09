@@ -4,6 +4,13 @@ const go = document.getElementById('go');
 const statusEl = document.getElementById('status');
 const resultEl = document.getElementById('result');
 const langSelect = document.getElementById('lang');
+const infoDialog = document.getElementById('info-dialog');
+const infoTitle = document.getElementById('info-title');
+const infoDesc = document.getElementById('info-desc');
+const infoWhy = document.getElementById('info-why');
+const infoCta = document.getElementById('info-cta');
+
+let openCategory = null;
 
 const RING_RADIUS = 56;
 const RING_LENGTH = 2 * Math.PI * RING_RADIUS;
@@ -53,6 +60,23 @@ function applyStatic() {
     node.placeholder = t(node.dataset.i18nPlaceholder);
   }
   if (langSelect) langSelect.value = LANG;
+  if (openCategory && infoDialog && infoDialog.open) fillInfo(openCategory);
+}
+
+function fillInfo(category) {
+  openCategory = category;
+  if (!infoTitle) return;
+  infoTitle.textContent = t('check_' + category + '_name');
+  infoDesc.textContent = t('check_' + category + '_desc');
+  infoWhy.textContent = t('why_' + category);
+  if (infoCta) infoCta.textContent = t('button');
+}
+
+function openInfo(category) {
+  fillInfo(category);
+  if (!infoDialog) return;
+  if (typeof infoDialog.showModal === 'function') infoDialog.showModal();
+  else infoDialog.setAttribute('open', '');
 }
 
 function colourFor(score) {
@@ -331,6 +355,19 @@ form.addEventListener('submit', (event) => {
 
 for (const button of document.querySelectorAll('[data-url]')) {
   button.addEventListener('click', () => run(button.dataset.url));
+}
+
+for (const card of document.querySelectorAll('[data-category]')) {
+  card.addEventListener('click', () => openInfo(card.dataset.category));
+}
+
+if (infoCta) {
+  infoCta.addEventListener('click', () => {
+    if (infoDialog) infoDialog.close();
+    openCategory = null;
+    input.focus();
+    input.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  });
 }
 
 if (langSelect) {

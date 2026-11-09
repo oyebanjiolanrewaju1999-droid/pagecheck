@@ -15,7 +15,7 @@
 <meta property="og:image:height" content="630" />
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:image" content="https://pagecheck-946f.onrender.com/og.png" />
-<link rel="stylesheet" href="/style.css?v=7" />
+<link rel="stylesheet" href="/style.css?v=8" />
 </head>
 <body>
 
@@ -77,25 +77,34 @@
   <section class="checks" id="checks">
     <h2 data-i18n="coversTitle">What the audit covers</h2>
     <p class="sub" data-i18n="coversSub">30 checks in eight areas — the same things an agency reviews before spending money on ads.</p>
+    <p class="tap-hint" data-i18n="tapHint">Tap a card to see why it matters.</p>
     <div class="check-grid">
-      <div class="check"><b><svg class="icon"><use href="#i-globe"/></svg><span data-i18n="check_reachability_name">Reachability</span></b><span data-i18n="check_reachability_desc">Does it load, over HTTPS, quickly?</span></div>
-      <div class="check"><b><svg class="icon"><use href="#i-search"/></svg><span data-i18n="check_search_name">Search basics</span></b><span data-i18n="check_search_desc">Title, description, headings, indexing.</span></div>
-      <div class="check"><b><svg class="icon"><use href="#i-share"/></svg><span data-i18n="check_previews_name">Link previews</span></b><span data-i18n="check_previews_desc">What people see when it is shared.</span></div>
-      <div class="check"><b><svg class="icon"><use href="#i-phone"/></svg><span data-i18n="check_mobile_name">Mobile</span></b><span data-i18n="check_mobile_desc">Does it fit a phone screen?</span></div>
-      <div class="check"><b><svg class="icon"><use href="#i-doc"/></svg><span data-i18n="check_content_name">Content</span></b><span data-i18n="check_content_desc">Enough substance? Images described?</span></div>
-      <div class="check"><b><svg class="icon"><use href="#i-gauge"/></svg><span data-i18n="check_speed_name">Speed</span></b><span data-i18n="check_speed_desc">Page weight and script load.</span></div>
-      <div class="check"><b><svg class="icon"><use href="#i-shield"/></svg><span data-i18n="check_security_name">Security</span></b><span data-i18n="check_security_desc">Headers, mixed content, framing.</span></div>
-      <div class="check"><b><svg class="icon"><use href="#i-cursor"/></svg><span data-i18n="check_conversion_name">Conversion</span></b><span data-i18n="check_conversion_desc">Is there a clear next step?</span></div>
+      <button type="button" class="check" data-category="reachability"><b><svg class="icon"><use href="#i-globe"/></svg><span data-i18n="check_reachability_name">Reachability</span></b><span data-i18n="check_reachability_desc">Does it load, over HTTPS, quickly?</span></button>
+      <button type="button" class="check" data-category="search"><b><svg class="icon"><use href="#i-search"/></svg><span data-i18n="check_search_name">Search basics</span></b><span data-i18n="check_search_desc">Title, description, headings, indexing.</span></button>
+      <button type="button" class="check" data-category="previews"><b><svg class="icon"><use href="#i-share"/></svg><span data-i18n="check_previews_name">Link previews</span></b><span data-i18n="check_previews_desc">What people see when it is shared.</span></button>
+      <button type="button" class="check" data-category="mobile"><b><svg class="icon"><use href="#i-phone"/></svg><span data-i18n="check_mobile_name">Mobile</span></b><span data-i18n="check_mobile_desc">Does it fit a phone screen?</span></button>
+      <button type="button" class="check" data-category="content"><b><svg class="icon"><use href="#i-doc"/></svg><span data-i18n="check_content_name">Content</span></b><span data-i18n="check_content_desc">Enough substance? Images described?</span></button>
+      <button type="button" class="check" data-category="speed"><b><svg class="icon"><use href="#i-gauge"/></svg><span data-i18n="check_speed_name">Speed</span></b><span data-i18n="check_speed_desc">Page weight and script load.</span></button>
+      <button type="button" class="check" data-category="security"><b><svg class="icon"><use href="#i-shield"/></svg><span data-i18n="check_security_name">Security</span></b><span data-i18n="check_security_desc">Headers, mixed content, framing.</span></button>
+      <button type="button" class="check" data-category="conversion"><b><svg class="icon"><use href="#i-cursor"/></svg><span data-i18n="check_conversion_name">Conversion</span></b><span data-i18n="check_conversion_desc">Is there a clear next step?</span></button>
     </div>
   </section>
 </main>
+
+<dialog id="info-dialog" class="info-dialog">
+  <form method="dialog" class="dialog-form"><button class="dialog-close" aria-label="Close">×</button></form>
+  <h3 id="info-title"></h3>
+  <p id="info-desc" class="info-desc"></p>
+  <p id="info-why" class="info-why"></p>
+  <button id="info-cta" class="dialog-cta" type="button" data-i18n="button">Audit my page</button>
+</dialog>
 
 <footer data-i18n="footer">
   Free, no account, nothing stored. Private addresses cannot be checked.
 </footer>
 
-<script src="/i18n.js?v=4"></script>
+<script src="/i18n.js?v=5"></script>
 <script src="/report-i18n.js?v=1"></script>
-<script src="/app.js?v=10"></script>
+<script src="/app.js?v=11"></script>
 </body>
 </html>
