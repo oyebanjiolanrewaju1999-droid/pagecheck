@@ -11,6 +11,6 @@ Date,Business,Category,Website,Contact Name,Email or Form,Score,Top Issue,Sent,F
 2026-11-09,Kesar Sweets & Restaurant,Restaurant,https://www.kesars.ca,Team,info@kesars.ca,91,Title 62 chars and 2/29 images missing alt,Yes,2026-11-17,No,Awaiting,,
 2026-11-09,Tadka King,Restaurant,https://tadkaking.ca,Team,info@tadkaking.ca,91,Description 188 chars and 2 H1 headings,Yes,2026-11-17,No,Awaiting,,
 2026-11-09,Bucatini,Restaurant,https://bucatinirestaurant.com,Team,vincebucatini@gmail.com,79,Title 70 chars and 6/19 images missing alt,Yes,,No,Bounced,Address not found - do not retry; use their contact form
-2026-11-09,Snelgrove Veterinary,Veterinary,https://www.snelgrovevet.com,Team,contact@snelgrovevet.com,80,No H1 and 18/18 images missing alt text,Pending,2026-11-17,No,Awaiting,Batch 2
-2026-11-09,Dr. Sonia Sharma Dental,Dentist,https://www.drsoniasharma.com,Team,contact form,48,Blocked: empty HTTP 202 challenge,No,,No,Skipped,Site blocks Render IPs; do not send a score it cannot verify
-2026-11-09,Heart Lake Health Centre,Clinic,https://heartlakemed.com,Team,receptiondesksandalwood@gmail.com,90,Description 221 chars and 2 H1 headings,Pending,2026-11-17,No,Awaiting,Batch 2
+2026-11-09,Paramount Fine Foods,Restaurant,https://www.paramountfinefoods.com,Team,contactus@paramountfinefoods.com,76,Page title 722 chars and description 785,Pending,2026-11-17,No,Awaiting,Batch 2 replacement - link verified
+2026-11-09,Hakka House Brampton,Restaurant,https://www.hakkahousebrampton.ca,Team,bramptonhakkahouse@gmail.com,75,No meta description and no og:image,Pending,2026-11-17,No,Awaiting,Batch 2 replacement - link verified
+2026-11-09,CoCo Fresh Tea & Juice,Cafe,https://cocofreshtea.ca,Team,cocoteatoronto@gmail.com,58,No description / no H1 / no og:image,Pending,2026-11-17,No,Awaiting,Batch 2 replacement - link verified
