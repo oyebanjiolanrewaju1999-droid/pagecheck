@@ -122,7 +122,7 @@ async function fetchPage(startUrl) {
         redirect: 'manual',
         signal: controller.signal,
         headers: {
-          'user-agent': 'PageCheck/1.0 (+https://sixside.onrender.com)',
+          'user-agent': 'PageCheck/1.0 (+https://pagecheck-946f.onrender.com)',
           accept: 'text/html,application/xhtml+xml',
           'accept-language': 'en-CA,en;q=0.9',
         },
@@ -146,6 +146,18 @@ async function fetchPage(startUrl) {
       throw new Error('That address does not return an HTML page.');
     }
     const html = await readCapped(response, MAX_HTML_BYTES);
+
+    // Some sites answer 2xx with a bot challenge or an empty shell. Scoring that
+    // would invent problems that do not exist (0 words, no title, no H1).
+    const bodyText = textOf(html);
+    const hasTitle = /<title[^>]*>\s*\S/i.test(html);
+    if (response.status >= 400) {
+      throw new Error(`The site returned HTTP ${response.status}. Check the address, or open it in a browser to confirm.`);
+    }
+    if (response.status === 202 || response.status === 429 || (bodyText.length < 120 && !hasTitle)) {
+      throw new Error('That site answered with an empty page, most likely because it blocks automated checks. Open it in a browser to confirm the page loads, then try another URL.');
+    }
+
     return {
       finalUrl: url.toString(),
       status: response.status,
