@@ -2,6 +2,9 @@ PAGECHECK OUTREACH — 10 EMAILS, SEND ORDER
 Send 2-3 per hour. Plain text, one link, no attachments.
 Follow-up date for all: 2026-11-17
 
+NOTE: Bucatini was removed — vincebucatini@gmail.com bounced.
+Tadka King replaces it at #10.
+
 
 ==========================================================
 1. TORBRAM & COUNTRYSIDE DENTAL
@@ -118,26 +121,7 @@ Reply "stop" and I won't email again.
 
 
 ==========================================================
-7. BUCATINI
-To: vincebucatini@gmail.com
-Subject: Quick SEO fixes for Bucatini
-==========================================================
-
-Hi Bucatini team,
-
-I ran your site through a free audit tool I built. Score: 79/100. Three quick ones: your page title is 70 characters so Google cuts it off, there are two H1 headings (one is ideal), and 6 of your 19 images have no alt text.
-
-Full report: https://pagecheck-946f.onrender.com/?url=https%3A%2F%2Fbucatinirestaurant.com%2F&utm_source=outreach&utm_medium=email&utm_campaign=batch1&utm_content=bucatini
-
-I'm a developer in Brampton, not selling anything — I built the tool and I'm looking for feedback from local restaurants.
-
-Philip Oyebanji
-Brampton, ON · oyebanjiolanrewaju1999@gmail.com
-Reply "stop" and I won't email again.
-
-
-==========================================================
-8. HERITAGE FISH & CHIPS
+7. HERITAGE FISH & CHIPS
 To: heritagefishnchips@yahoo.ca
 Subject: Your Google title is being cut off
 ==========================================================
@@ -156,7 +140,7 @@ Reply "stop" and I won't email again.
 
 
 ==========================================================
-9. SEGOVIA COFFEE CO.
+8. SEGOVIA COFFEE CO.
 To: info@segoviacoffee.ca
 Subject: Small fixes for Segovia's site
 ==========================================================
@@ -175,7 +159,7 @@ Reply "stop" and I won't email again.
 
 
 ==========================================================
-10. KESAR SWEETS & RESTAURANT
+9. KESAR SWEETS & RESTAURANT
 To: info@kesars.ca
 Subject: Small SEO fixes for Kesar
 ==========================================================
@@ -185,6 +169,25 @@ Hi Kesar team,
 I ran your site through a free audit tool I built. Score: 91/100 — one of the best I've checked in Brampton. Only small things left: your title is 62 characters, so Google trims the end of it, and 2 of your 29 images have no alt text.
 
 Full report: https://pagecheck-946f.onrender.com/?url=https%3A%2F%2Fwww.kesars.ca%2F&utm_source=outreach&utm_medium=email&utm_campaign=batch1&utm_content=kesar
+
+I'm a developer in Brampton testing the tool — free, no sign-up. A one-line reply telling me if the report made sense would help.
+
+Philip Oyebanji
+Brampton, ON · oyebanjiolanrewaju1999@gmail.com
+Reply "stop" and I won't email again.
+
+
+==========================================================
+10. TADKA KING
+To: info@tadkaking.ca
+Subject: Two small SEO fixes for Tadka King
+==========================================================
+
+Hi Tadka King team,
+
+I ran your site through a free audit tool I built. Score: 91/100 — one of the best I've checked in Brampton. Two small things: your meta description is 188 characters, so Google cuts it off at about 160, and the page has two H1 headings (one is ideal).
+
+Full report: https://pagecheck-946f.onrender.com/?url=https%3A%2F%2Ftadkaking.ca%2F&utm_source=outreach&utm_medium=email&utm_campaign=batch1&utm_content=tadkaking
 
 I'm a developer in Brampton testing the tool — free, no sign-up. A one-line reply telling me if the report made sense would help.
 
