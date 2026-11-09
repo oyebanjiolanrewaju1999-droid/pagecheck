@@ -173,6 +173,35 @@ function renderSummary(data) {
   return summary;
 }
 
+function translatedLabel(entry) {
+  const rd = reportDict();
+  return (rd && rd.labels[entry.label]) || entry.label;
+}
+
+function translatedFix(entry) {
+  const rd = reportDict();
+  return (rd && rd.fixes[entry.fix]) || entry.fix;
+}
+
+function renderPriority(issues) {
+  const card = el('section', 'priority');
+  card.append(el('h2', null, t('topFixes')));
+  if (!issues.length) {
+    card.append(el('p', 'priority-empty', t('noIssues')));
+    return card;
+  }
+  for (const entry of issues.slice(0, 3)) {
+    const row = el('div', 'priority-item');
+    row.append(icon(STATUS_ICON[entry.status] || 'alert', 'status-icon'));
+    const body = el('div');
+    body.append(el('b', null, translatedLabel(entry)));
+    if (entry.fix) body.append(el('p', 'priority-fix', translatedFix(entry)));
+    row.append(body);
+    card.append(row);
+  }
+  return card;
+}
+
 function renderGroup(group) {
   const issues = group.items.filter((entry) => entry.status !== 'pass').length;
   const details = document.createElement('details');
@@ -198,17 +227,14 @@ function renderGroup(group) {
   summary.append(top, bar, note);
 
   const body = el('div', 'group-items');
-  const rd = reportDict();
   for (const entry of group.items) {
     const row = el('div', 'item ' + entry.status);
     row.append(icon(STATUS_ICON[entry.status] || 'alert', 'status-icon'));
     const text = el('div');
-    const label = (rd && rd.labels[entry.label]) || entry.label;
-    text.append(el('b', null, label));
+    text.append(el('b', null, translatedLabel(entry)));
     if (entry.detail && LANG === 'en') text.append(el('p', 'detail', entry.detail));
     if (entry.status !== 'pass' && entry.fix) {
-      const fixText = (rd && rd.fixes[entry.fix]) || entry.fix;
-      const fix = el('p', 'fix', fixText);
+      const fix = el('p', 'fix', translatedFix(entry));
       fix.dataset.label = t('doThis');
       text.append(fix);
     }
@@ -223,9 +249,35 @@ function renderGroup(group) {
 function render(data) {
   resultEl.replaceChildren();
   resultEl.append(renderSummary(data));
+
+  const issues = [];
+  for (const group of data.groups) {
+    for (const entry of group.items) {
+      if (entry.status !== 'pass') issues.push(entry);
+    }
+  }
+  const rank = (entry) => (entry.status === 'fail' ? 0 : 1);
+  issues.sort((a, b) => rank(a) - rank(b) || (b.weight || 1) - (a.weight || 1));
+
+  const priority = renderPriority(issues);
+  if (issues.length) {
+    priority.style.borderLeftColor = issues.some((entry) => entry.status === 'fail') ? '#dc2626' : '#d97706';
+  }
+  resultEl.append(priority);
+
   const groups = el('div', 'groups');
   for (const group of data.groups) groups.append(renderGroup(group));
-  resultEl.append(groups);
+  groups.hidden = true;
+
+  const toggle = el('button', 'show-all', t('showAll'));
+  toggle.type = 'button';
+  toggle.addEventListener('click', () => {
+    const showing = !groups.hidden;
+    groups.hidden = showing;
+    toggle.textContent = showing ? t('showAll') : t('showLess');
+  });
+
+  resultEl.append(toggle, groups);
   resultEl.hidden = false;
   resultEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
 }
