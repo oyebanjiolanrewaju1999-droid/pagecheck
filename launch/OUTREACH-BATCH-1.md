@@ -1,4 +1,4 @@
-# Outreach batch 1 — 6 verified Brampton businesses
+# Outreach batch 1 — 7 verified Brampton businesses
 
 All were checked with PageCheck. Emails below are the businesses' **publicly listed**
 addresses. Send one at a time, log in `TRACKER.csv`, stop if asked.
@@ -11,6 +11,7 @@ addresses. Send one at a time, log in `TRACKER.csv`, stop if asked.
 | Heritage Fish & Chips | 88 B | Title 89 chars, description 297, no preview image | heritagefishnchips@yahoo.ca |
 | Segovia Coffee Co. | 89 B | 5 H1s, 9/18 images missing alt | info@segoviacoffee.ca |
 | Punjabi Chaap Corner | 82 B | No meta description | admin@punjabichaapcorner.ca |
+| Primadental | 67 D | Served over plain HTTP (no padlock), no meta description | info@primadental.ca |
 
 ## 1. The Tooth Corner Dental — help@toothcorner.com
 
@@ -135,7 +136,29 @@ addresses. Send one at a time, log in `TRACKER.csv`, stop if asked.
 2. Punjabi Chaap (missing description)
 3. iSmile (share image)
 4. Tooth Corner (title, H1s)
-5. Heritage (title length)
-6. Segovia (high score, lighter pitch)
+5. Primadental (no padlock — most urgent)
+6. Heritage (title length)
+7. Segovia (high score, lighter pitch)
 
 Send 2–3 today, the rest tomorrow. Log each with a follow-up date 5 business days out.
+
+## 7. Primadental — info@primadental.ca
+
+**Subject:** Your site shows "Not secure" in Chrome
+
+> Hi Primadental team,
+>
+> I ran your site through a free audit tool I built. Score: 67/100. The biggest
+> issue: the site loads over plain HTTP, so Chrome and Safari show "Not secure"
+> in the address bar — people notice that before they book. There's also no meta
+> description, so Google writes its own line under your link.
+>
+> Full report with the exact fixes: https://pagecheck-946f.onrender.com/?url=http%3A%2F%2Fwww.primadental.ca%2F&utm_source=outreach&utm_medium=email&utm_campaign=batch1&utm_content=primadental
+>
+> I'm a developer in Brampton, not selling anything — I built the tool and I'm
+> looking for feedback from real businesses. Fixing the padlock is usually free
+> (it's a certificate setting on your host).
+>
+> Philip Oyebanji
+> Brampton, ON · oyebanjiolanrewaju1999@gmail.com
+> Reply "stop" and I won't email again.
