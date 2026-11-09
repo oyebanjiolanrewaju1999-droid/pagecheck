@@ -1,4 +1,4 @@
-# Outreach batch 1 — 10 send-ready emails
+# Outreach batch 1 — 11 send-ready emails
 
 Every site was audited over **HTTPS** (the score you'd see as a normal visitor).
 Emails are the businesses' publicly listed addresses. Send 2–3 per hour, not ten in
@@ -16,6 +16,7 @@ one burst — ten at once from a new Gmail account looks like bulk mail.
 | 8 | Segovia Coffee Co. | 89 B | 5 H1s, 9/18 images missing alt | info@segoviacoffee.ca |
 | 9 | Tadka King | 91 A | Description 188 chars, 2 H1s | info@tadkaking.ca |
 | 10 | Kesar Sweets & Restaurant | 91 A | Title 62 chars, 2/29 images missing alt | info@kesars.ca |
+| 11 | Brampton Urgent Care Clinic | 73 C | No meta description, no H1 | info@urgentcarecentre.ca |
 
 ---
 
@@ -199,6 +200,24 @@ one burst — ten at once from a new Gmail account looks like bulk mail.
 
 ---
 
+## 11. Brampton Urgent Care Clinic — info@urgentcarecentre.ca
+
+**Subject:** Two fixes for your homepage
+
+> Hi Brampton Urgent Care team,
+>
+> I ran your site through a free audit tool I built. Score: 73/100. Two things stood out: there's no meta description, so Google writes its own line under your link — often a phone number instead of what you treat; and the page has no main H1 heading.
+>
+> Full report: https://pagecheck-946f.onrender.com/?url=https%3A%2F%2Fwww.urgentcarecentre.ca%2F&utm_source=outreach&utm_medium=email&utm_campaign=batch1&utm_content=urgentcare
+>
+> I'm a developer in Brampton, not selling anything — I built the tool and I'm looking for feedback from local clinics.
+>
+> Philip Oyebanji
+> Brampton, ON · oyebanjiolanrewaju1999@gmail.com
+> Reply "stop" and I won't email again.
+
+---
+
 ## Send order
 
 1. **Torbram** — noindex is the strongest, most urgent finding
@@ -207,10 +226,11 @@ one burst — ten at once from a new Gmail account looks like bulk mail.
 4. **Punjabi Chaap** — missing description
 5. **iSmile** — share image
 6. **Tooth Corner** — title + H1s
-7. **Heritage** — title length
-8. **Segovia** — high score, lighter pitch
-9. **Kesar** — highest score, lightest pitch
-10. **Tadka King** — replacement for the Bucatini bounce
+7. **Brampton Urgent Care** — missing description + no H1
+8. **Heritage** — title length
+9. **Segovia** — high score, lighter pitch
+10. **Kesar** — highest score, lightest pitch
+11. **Tadka King** — replacement for the Bucatini bounce
 
 Two to three per hour. Follow-up date on everything: **2026-11-17**.
 

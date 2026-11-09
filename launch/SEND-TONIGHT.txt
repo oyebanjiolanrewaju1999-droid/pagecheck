@@ -194,3 +194,22 @@ I'm a developer in Brampton testing the tool — free, no sign-up. A one-line re
 Philip Oyebanji
 Brampton, ON · oyebanjiolanrewaju1999@gmail.com
 Reply "stop" and I won't email again.
+
+
+==========================================================
+11. BRAMPTON URGENT CARE CLINIC
+To: info@urgentcarecentre.ca
+Subject: Two fixes for your homepage
+==========================================================
+
+Hi Brampton Urgent Care team,
+
+I ran your site through a free audit tool I built. Score: 73/100. Two things stood out: there's no meta description, so Google writes its own line under your link — often a phone number instead of what you treat; and the page has no main H1 heading.
+
+Full report: https://pagecheck-946f.onrender.com/?url=https%3A%2F%2Fwww.urgentcarecentre.ca%2F&utm_source=outreach&utm_medium=email&utm_campaign=batch1&utm_content=urgentcare
+
+I'm a developer in Brampton, not selling anything — I built the tool and I'm looking for feedback from local clinics.
+
+Philip Oyebanji
+Brampton, ON · oyebanjiolanrewaju1999@gmail.com
+Reply "stop" and I won't email again.
