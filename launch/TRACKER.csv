@@ -1,2 +1,7 @@
 Date,Business,Category,Website,Contact Name,Email or Form,Score,Top Issue,Sent,Follow-up Date,Replied,Outcome,Notes
-2026-11-09,EXAMPLE Dental,Dentist,https://example.com,Dr Smith,info@example.com,58,No meta description,2026-11-09,2026-11-16,No,,Audit link sent with UTM outreach
+2026-11-09,Cat Hospital of Brampton,Veterinary,https://cathospitalofbrampton.com,Team,staff@cathospitalofbrampton.com,78,No H1 and 25/26 images missing alt text,No,2026-11-16,No,,Batch 1 #1 (send first)
+2026-11-09,Punjabi Chaap Corner,Restaurant,https://punjabichaapcorner.ca,Team,admin@punjabichaapcorner.ca,82,No meta description,No,2026-11-16,No,,Batch 1 #2
+2026-11-09,iSmile Dental Centre,Dentist,https://ismiledentalcentre.com,Team,north@ismiledentalcentre.com,81,No og:image social preview,No,2026-11-16,No,,Batch 1 #3
+2026-11-09,The Tooth Corner Dental,Dentist,https://toothcorner.com,Team,help@toothcorner.com,85,Title 70 chars and 3 H1 headings,No,2026-11-16,No,,Batch 1 #4
+2026-11-09,Heritage Fish & Chips,Restaurant,https://www.heritagefishnchips.com,Team,heritagefishnchips@yahoo.ca,88,Title 89 chars / description 297 / no og:image,No,2026-11-16,No,,Batch 1 #5
+2026-11-09,Segovia Coffee Co.,Cafe,https://segovia-coffee.myshopify.com,Team,info@segoviacoffee.ca,89,5 H1 headings and 9/18 images missing alt text,No,2026-11-16,No,,Batch 1 #6 (lighter pitch)
