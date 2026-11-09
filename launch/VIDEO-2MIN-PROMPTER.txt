@@ -1,0 +1,60 @@
+Your website might be losing customers right now,
+and you would never know it.
+Not because it's ugly —
+because of things you can't see.
+
+When someone finds your business on Google,
+four things decide whether they click:
+your title,
+the description under it,
+the image that shows when someone shares your link,
+and how fast the page loads.
+
+Get those wrong and you don't get an error.
+You just get fewer customers,
+and no way to know why.
+
+So I built a free tool called PageCheck.
+You paste your website address,
+and in about eight seconds
+it runs thirty checks
+and gives you a score out of a hundred.
+
+No sign-up.
+No account.
+It doesn't store your link.
+
+Let me show you.
+I'll use my own site.
+
+Paste the address…
+hit audit…
+and there it is:
+eighty-two out of a hundred, grade B.
+
+Underneath, it tells me the three things to fix first.
+
+My page has no meta description,
+so Google is writing its own line under my link.
+
+The share image is missing,
+so my links look broken when someone sends them.
+
+And there's no strict transport security header.
+
+That's the part I care about.
+It doesn't just tell you something is wrong —
+it tells you what to change, in plain English,
+and which three to do first.
+
+A business owner can read this in two minutes
+and hand it to their web person.
+No jargon, no sales call.
+
+It's free, it takes about eight seconds,
+and it works in English, French, Spanish and Hindi.
+
+The link is in my bio.
+Run your site through it —
+and if the score surprises you,
+tell me in the comments.
