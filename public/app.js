@@ -389,3 +389,22 @@ applyStatic();
 
 const params = new URLSearchParams(location.search);
 if (params.get('url')) run(params.get('url'));
+
+// Record which channel brought the visitor (utm_source=email, linkedin, ...).
+// GoatCounter drops query strings, so the channel is sent as an event instead.
+(function trackChannel() {
+  const source = new URLSearchParams(location.search).get('utm_source');
+  if (!source) return;
+  const clean = source.toLowerCase().replace(/[^a-z0-9-]/g, '').slice(0, 24);
+  if (!clean) return;
+  let tries = 0;
+  const send = () => {
+    if (window.goatcounter && typeof window.goatcounter.count === 'function') {
+      window.goatcounter.count({ path: 'source-' + clean, title: 'Source: ' + clean, event: true });
+      return;
+    }
+    if (tries++ < 20) setTimeout(send, 250);
+  };
+  if (document.readyState === 'complete') send();
+  else window.addEventListener('load', send);
+})();
