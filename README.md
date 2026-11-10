@@ -60,7 +60,9 @@ forgery problem if you get it wrong. PageCheck:
   own origin
 - rate-limits to 12 checks per IP per minute
 
-Nothing is stored: no accounts, no database, no record of which URLs were checked.
+Nothing is stored: no accounts, no database, no log of which URLs were checked.
+Page counts are aggregated anonymously with GoatCounter — no cookies, no personal
+data, no cross-site tracking.
 
 ## Four languages
 
