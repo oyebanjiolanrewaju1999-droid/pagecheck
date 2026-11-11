@@ -139,6 +139,17 @@ async function audit(url) {
   return res.json();
 }
 
+async function auditWithRetry(url) {
+  for (let attempt = 1; attempt <= 3; attempt += 1) {
+    const report = await audit(url);
+    if (report.ok) return report;
+    if (!String(report.error || '').includes('Too many checks')) return report;
+    console.log(`  rate limited — waiting 65s (attempt ${attempt}/3)`);
+    await sleep(65000);
+  }
+  return { ok: false, error: 'still rate limited after 3 attempts' };
+}
+
 // ---------------------------------------------------------------- main
 const raw = await overpassSites();
 console.log(`Overpass returned ${raw.length} businesses with a website`);
@@ -162,7 +173,7 @@ for (const row of queue) {
 
   let report;
   try {
-    report = await audit(row.website);
+    report = await auditWithRetry(row.website);
   } catch (error) {
     console.log(`skip ${row.name}: ${error.message}`);
     continue;
