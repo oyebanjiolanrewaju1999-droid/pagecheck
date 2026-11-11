@@ -1,0 +1,7 @@
+file 'C:/Users/oyeba/OneDrive/Desktop/R-E-A/pagecheck/launch/video-build/seg/s1.mp4'
+file 'C:/Users/oyeba/OneDrive/Desktop/R-E-A/pagecheck/launch/video-build/seg/s2.mp4'
+file 'C:/Users/oyeba/OneDrive/Desktop/R-E-A/pagecheck/launch/video-build/seg/s3.mp4'
+file 'C:/Users/oyeba/OneDrive/Desktop/R-E-A/pagecheck/launch/video-build/seg/demo.mp4'
+file 'C:/Users/oyeba/OneDrive/Desktop/R-E-A/pagecheck/launch/video-build/seg/s5.mp4'
+file 'C:/Users/oyeba/OneDrive/Desktop/R-E-A/pagecheck/launch/video-build/seg/s6.mp4'
+file 'C:/Users/oyeba/OneDrive/Desktop/R-E-A/pagecheck/launch/video-build/seg/end.mp4'
