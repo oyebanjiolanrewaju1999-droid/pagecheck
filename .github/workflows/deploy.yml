@@ -1,8 +1,15 @@
 name: Deploy to Render
 
+# Only deploy when something the server actually serves changes.
+# Docs, launch notes and tools don't need a redeploy.
 on:
   push:
     branches: [main]
+    paths:
+      - 'public/**'
+      - 'server.js'
+      - 'package.json'
+      - 'render.yaml'
   workflow_dispatch:
 
 jobs:
