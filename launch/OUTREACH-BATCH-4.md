@@ -8,12 +8,12 @@ Do not send more than 3–4 in a day from the same Gmail.
 | # | Business | Score | Contact | Send |
 |---|---|---|---|---|
 | 1 | Aviva Dental | 72 C | info@avivadental.com | Thu 12 |
-| 2 | West Woodbridge Pet Hospital | 71 C | staff@westwoodbridgepethospital.com | Thu 12 |
+| 2 | West Woodbridge Pet Hospital | 72 C | staff@westwoodbridgepethospital.com | Thu 12 |
 | 3 | Zen Gardens | 73 C | info@zen-garden.ca | Thu 12 |
 | 4 | Sweet Mahal | 77 C | info@sweetmahal.ca | Fri 13 |
 | 5 | Red Onion | 87 B | redonion14010@gmail.com | Fri 13 |
-| 6 | Milano Dentistry | 85 B | info@milanidentistry.ca | Fri 13 |
-| 7 | Sunny Ridge Dental | 87 B | info@sunnyridgedental.com | Mon 16 |
+| 6 | Milano Dentistry | 84 B | info@milanidentistry.ca | Fri 13 |
+| 7 | Sunny Ridge Dental | 86 B | info@sunnyridgedental.com | Mon 16 |
 | 8 | Vodden Medical Pharmacy | 90 A | cosimo@voddenpharmacy.com | Mon 16 |
 
 Follow-ups: **19 Nov** (Thu sends), **20 Nov** (Fri), **23 Nov** (Mon).
@@ -44,7 +44,7 @@ Follow-ups: **19 Nov** (Thu sends), **20 Nov** (Fri), **23 Nov** (Mon).
 
 > Hi West Woodbridge team,
 >
-> I ran your site through a free audit tool I built. Score: 71/100. The biggest issues: there's no meta description, so Google writes its own line under your link; there's no social preview image; and 4 of your 10 images have no alt text, which costs you both search and screen-reader visitors.
+> I ran your site through a free audit tool I built. Score: 72/100. The biggest issues: there's no meta description, so Google writes its own line under your link; there's no social preview image; and 4 of your 10 images have no alt text, which costs you both search and screen-reader visitors.
 >
 > Full report: https://pagecheck-946f.onrender.com/?url=https%3A%2F%2Fwestwoodbridgepethospital.com%2F&utm_source=outreach&utm_medium=email&utm_campaign=batch4&utm_content=westwoodbridge
 >
@@ -116,7 +116,7 @@ Follow-ups: **19 Nov** (Thu sends), **20 Nov** (Fri), **23 Nov** (Mon).
 
 > Hi Milano team,
 >
-> I ran your site through a free audit tool I built. Score: 85/100. The one failing check: there's no social preview image, so shared links show a blank card instead of your practice. Two smaller things: the HTML is 282 KB and there's no strict transport security header.
+> I ran your site through a free audit tool I built. Score: 84/100. The one failing check: there's no social preview image, so shared links show a blank card instead of your practice. Two smaller things: the HTML is 282 KB and there's no strict transport security header.
 >
 > Full report: https://pagecheck-946f.onrender.com/?url=https%3A%2F%2Fmilanidentistry.ca%2F&utm_source=outreach&utm_medium=email&utm_campaign=batch4&utm_content=milano
 >
@@ -134,7 +134,7 @@ Follow-ups: **19 Nov** (Thu sends), **20 Nov** (Fri), **23 Nov** (Mon).
 
 > Hi Sunny Ridge team,
 >
-> I ran your site through a free audit tool I built. Score: 87/100 — strong. Three things worth fixing: 3 of your 25 images have no alt text; the HTML is 427 KB; and the page loads 22 external scripts, which slows the first visit.
+> I ran your site through a free audit tool I built. Score: 86/100 — strong. Three things worth fixing: 3 of your 25 images have no alt text; the HTML is 427 KB; and the page loads 22 external scripts, which slows the first visit.
 >
 > Full report: https://pagecheck-946f.onrender.com/?url=https%3A%2F%2Fwww.sunnyridgedental.com%2F&utm_source=outreach&utm_medium=email&utm_campaign=batch4&utm_content=sunnyridge
 >
