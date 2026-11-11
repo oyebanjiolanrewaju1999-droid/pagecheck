@@ -75,6 +75,7 @@ out tags center 700;`;
     'https://overpass-api.de/api/interpreter',
     'https://overpass.kumi.systems/api/interpreter',
   ]) {
+    console.log(`Asking OpenStreetMap (${new URL(endpoint).host})... this can take up to a minute`);
     try {
       const res = await fetch(endpoint, {
         method: 'POST',
