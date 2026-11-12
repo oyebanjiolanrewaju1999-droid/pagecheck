@@ -1,0 +1,29 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<style>
+  body { margin:0; background:#111; color:#eee; font:14px/1.3 Arial, sans-serif; }
+  .grid { display:grid; grid-template-columns:repeat(5,1fr); gap:6px; padding:6px; }
+  figure { margin:0; }
+  img { width:100%; display:block; }
+  figcaption { padding:3px 2px; font-size:11px; color:#bbb; word-break:break-all; }
+</style>
+</head>
+<body>
+<div class="grid" id="grid"></div>
+<script>
+  const files = ["megaberry_69pv7s97ahma_2026-11-07_1655_68RM3vok.png","megaberry_69pv7s97ahma_2026-11-07_1656_leNljjou.png","megaberry_69pv7s97ahma_2026-11-08_2025_jPumekPD.png","megaberry_69pv7s97ahma_2026-11-08_2025_yNNXFQP6.png","megaberry_69pv7s97ahma_2026-11-10_1439_JAvUTviN.png","megaberry_69pv7s97ahma_2026-11-10_1439_VwzOJiJp.png","megaberry_69pv7s97ahma_2026-11-10_1443_BeFOsawt.png","megaberry_69pv7s97ahma_2026-11-10_1443_bzto6Buv.png","megaberry_69pv7s97ahma_2026-11-10_1443_RVdtpg1v.png","megaberry_69pv7s97ahma_2026-11-10_1456_c37HWHS0.png","megaberry_69pv7s97ahma_2026-11-10_1456_frXtSFrJ.png","megaberry_69pv7s97ahma_2026-11-10_1456_HlHrAWRi.png","megaberry_69pv7s97ahma_2026-11-10_1456_W5RsXPLI (1).png","megaberry_69pv7s97ahma_2026-11-10_1456_W5RsXPLI.png","megaberry_69pv7s97ahma_2026-11-10_1456_ysOYRVKx.png","megaberry_69pv7s97ahma_2026-11-10_1508_3JlftpdM.png","megaberry_69pv7s97ahma_2026-11-10_1508_jHB7Dsjm.png","megaberry_69pv7s97ahma_2026-11-11_1720_CZO8vie4 (1).png","megaberry_69pv7s97ahma_2026-11-11_1720_eufFI5IR.png","megaberry_69pv7s97ahma_2026-11-11_1720_t0Obhxnu.png"];
+  const grid = document.getElementById('grid');
+  for (const [i, f] of files.entries()) {
+    const fig = document.createElement('figure');
+    const img = document.createElement('img');
+    img.src = 'file:///C:/Users/oyeba/OneDrive/Desktop/tiktok/' + encodeURIComponent(f);
+    const cap = document.createElement('figcaption');
+    cap.textContent = i + ' - ' + f.slice(-18);
+    fig.append(img, cap);
+    grid.append(fig);
+  }
+</script>
+</body>
+</html>

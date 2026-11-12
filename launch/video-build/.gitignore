@@ -1,4 +1,6 @@
 seg/
 cap/
-joined.mp4
+podseg/
+*.mp4
 *.png
+*.wav

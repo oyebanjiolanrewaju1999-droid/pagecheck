@@ -4,6 +4,8 @@
 
 [**Try it → pagecheck-946f.onrender.com**](https://pagecheck-946f.onrender.com)
 
+[**Watch: how I built it, and the bug that made it lie**](https://youtu.be/MuAqInDlgUc) — 6 minutes.
+
 ![PageCheck home page](docs/home.png)
 
 Paste a URL. Get a score out of 100, the three fixes that matter most, and a
