@@ -17,10 +17,10 @@ Date,Business,Category,Website,Contact Name,Email or Form,Score,Top Issue,Sent,F
 2026-11-14,Momo 2 Go,Restaurant,https://momo2go.com,Team,contact form,62,No meta description / no H1 / no og:image,No,,No,Blocked,Contact form returns server error; no published email
 2026-11-14,Roycrest Dental Centre,Dentist,https://www.roycrestdental.ca,Team,contact form,71,No H1 heading and title 66 chars,Yes,2026-11-20,No,Awaiting,Batch 3 - link verified
 2026-11-14,Scotty Bons Brampton,Restaurant,http://scottybonsgrill.com/brampton,Team,brampton@scottybonsgrill.com,81,No og:image and description 167 chars,Yes,2026-11-20,No,Awaiting,Batch 3 - link verified
-2026-11-11,Brar's,Restaurant,https://www.brars.ca,OIC Foods,info@oicfoods.com,91,Meta description 4 chars and 4 H1 headings,Pending,2026-11-18,No,Awaiting,Batch 3 - link verified
+2026-11-14,Brar's,Restaurant,https://www.brars.ca,OIC Foods,info@oicfoods.com,91,Meta description 4 chars and 4 H1 headings,Yes,2026-11-20,No,Awaiting,Batch 3 - link verified
 2026-11-12,Eggsmart,Restaurant,http://www.eggsmart.ca,Team,contact form,77,No description / no H1 / no og:image,Pending,2026-11-19,No,Awaiting,Batch 3 - link verified
 2026-11-12,Karahi Boys,Restaurant,https://www.karahiboys.com,Team,contact form,74,62/70 images missing alt and no og:image,Pending,2026-11-19,No,Awaiting,Batch 3 - link verified
-2026-11-12,Khazana,Restaurant,https://www.khazanacanada.com,Team,admin@khazanacanada.com,76,Title 62 chars / description 169 / 2 H1s,Pending,2026-11-19,No,Awaiting,Batch 3 - link verified
+2026-11-14,Khazana,Restaurant,https://www.khazanacanada.com,Team,admin@khazanacanada.com,76,Title 62 chars / description 169 / 2 H1s,Yes,2026-11-20,No,Awaiting,Batch 3 - link verified
 2026-11-11,Aviva Dental,Dentist,https://avivadental.com,Team,info@avivadental.com,72,No description / no H1 / no og:image,Yes,2026-11-18,No,Awaiting,Batch 4 - link verified over HTTPS
 2026-11-11,West Woodbridge Pet Hospital,Veterinary,https://westwoodbridgepethospital.com,Team,staff@westwoodbridgepethospital.com,72,No description / no og:image / 4-10 alt,Yes,2026-11-18,No,Awaiting,Batch 4 - link verified
 2026-11-11,Zen Gardens,Restaurant,https://zen-garden.ca,Team,info@zen-garden.ca,73,No H1 and only 118 words,Yes,2026-11-18,No,Awaiting,Batch 4 - link verified over HTTPS
