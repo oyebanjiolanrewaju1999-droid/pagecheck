@@ -9,6 +9,7 @@ window.I18N = {
     examples: 'No site handy? Try',
     reading: 'Reading the page…',
     audited: 'Audited in {s} s',
+    selfError: 'That is this tool, not the site. Paste the website you want checked — for example yourbusiness.ca',
     grade: 'Grade {g}',
     headline90: 'This page is in good shape.',
     headline80: 'Strong page, with a few easy wins.',

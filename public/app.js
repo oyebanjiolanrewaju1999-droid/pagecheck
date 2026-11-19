@@ -91,9 +91,32 @@ function setStatus(text, bad) {
 }
 
 function normalise(value) {
-  const trimmed = String(value || '').trim();
+  let trimmed = String(value || '').trim();
   if (!trimmed) return '';
-  return /^https?:\/\//i.test(trimmed) ? trimmed : 'https://' + trimmed;
+  if (!/^https?:\/\//i.test(trimmed)) trimmed = 'https://' + trimmed;
+  try {
+    const parsed = new URL(trimmed);
+    // A pasted PageCheck report link (?url=...) should audit the site inside it,
+    // not this tool. Otherwise the score describes PageCheck itself.
+    const isSelf = parsed.hostname === location.hostname
+      || parsed.hostname.endsWith('pagecheck-946f.onrender.com');
+    if (isSelf) {
+      const inner = parsed.searchParams.get('url');
+      return inner ? normalise(inner) : '';
+    }
+  } catch { /* not a parseable URL — let the server judge it */ }
+  return trimmed;
+}
+
+function pointsAtSelf(value) {
+  const trimmed = String(value || '').trim();
+  if (!trimmed) return false;
+  const withScheme = /^https?:\/\//i.test(trimmed) ? trimmed : 'https://' + trimmed;
+  try {
+    const parsed = new URL(withScheme);
+    return parsed.hostname === location.hostname
+      || parsed.hostname.endsWith('pagecheck-946f.onrender.com');
+  } catch { return false; }
 }
 
 function el(tag, className, text) {
@@ -316,7 +339,13 @@ function syncUrl(url) {
 
 async function run(rawUrl) {
   const url = normalise(rawUrl);
-  if (!url) return;
+  if (!url) {
+    if (pointsAtSelf(rawUrl)) {
+      setStatus(t('selfError'), true);
+      return;
+    }
+    return;
+  }
   LAST_URL = url;
   input.value = url;
   go.disabled = true;
